@@ -5,13 +5,14 @@
     box-sizing: border-box;
   }
 
-  body {
+body {
     font-family: "Kaisei HarunoUmi";
     line-height: 1.6;
     margin: 0;
+
     min-height: 100svh;
-    min-height: var(--page-height);
-  }
+    min-height: var(--page-height, 100svh);
+}
 
 .body-bg {
   position: fixed;
@@ -525,11 +526,12 @@ html {
 /*スマホ*/
 @media (max-width: 767px) {
 
-  .section {
+.section {
     display: flex;
     justify-content: center;
     position: relative;
     height: auto;
+    min-height: calc(100dvh - 150px);
     padding: 80px 0;
   }
 
