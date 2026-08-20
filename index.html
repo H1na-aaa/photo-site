@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web美術館</title>
+    <link rel="stylesheet" href="all.css">
+    <script src="all.js" defer></script>
+</head>
+<body>
+    <img src="image/index.webp" class="body-bg" id="body-bg">
+    <div class="overlay" id="overlay"></div>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-infomation">
+            <a href="#home" class="logo">
+                <img src="image/logoa.png" alt="ロゴ">
+            </a>
+            <button class="hamburger" id="hamburger" type="button" aria-label="メニューを開閉" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <ul>
+                    <li><a href="credits.html">使用素材</a></li>
+                    <li class="nav-separator" aria-hidden="true">✦</li>
+                    <li><a href="about.html">サイトについて</a></li>
+                    <li class="nav-separator" aria-hidden="true">✦</li>
+                    <li><a href="profile.html">制作者プロフィール</a></li>
+                </ul>
+            </nav> 
+        </div>
+    </header>
+    <!-- BGM -->
+    <audio id="bgm" loop preload="auto">
+        <source src="bgm/Le-Musee.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="bgm-control control-panel">
+        <button id="bgm-toggle" class="control-button" type="button">BGM再生</button>
+        <label for="bgm-volume" class="bgm-volume-label">音量</label>
+        <input id="bgm-volume" class="bgm-volume" type="range" min="0" max="100" value="10">
+        <span id="bgm-volume-value" class="bgm-volume-value">10%</span>
+    </div>
+    <!-- ピクトグラム -->
+    <div class="opening" id="opening">
+        <img src="image/pictogram.png">
+    </div>
+    <!-- メイン -->
+    <main id="page-content">
+        <h1 id="page-title">
+            ようこそ写真展へ
+        </h1>
+        <div class="section">
+            <div class="track" id="gallery-track"></div>
+          </div>      
+    </main>
+    <div class="popup" id="popup">
+
+  <div class="popup-content">
+
+    <!-- 閉じる -->
+    <button
+      class="close-btn"
+      id="popup-close"
+      type="button"
+      aria-label="閉じる"
+    >
+      &times;
+    </button>
+
+    <!-- 写真・説明 -->
+    <div class="popup-flex">
+      <!-- スマホではここを左右スワイプ -->
+      <div
+        class="popup-image"
+        id="popup-swipe-area"
+      >
+        <img
+          id="popup-image"
+          src=""
+          alt=""
+        >
+      </div>
+      <div class="popup-text">
+        <h2 id="popup-title"></h2>
+        <p id="popup-description"></p>
+      </div>
+    </div>
+    <!-- PC用：下部ナビゲーション -->
+    <div class="popup-navigation">
+      <button
+        class="popup-arrow"
+        id="popup-prev"
+        type="button"
+        aria-label="前の写真"
+      >
+        &#10094;
+      </button>
+      <button
+        class="popup-arrow"
+        id="popup-next"
+        type="button"
+        aria-label="次の写真"
+      >
+        &#10095;
+      </button>
+    </div>
+  </div>
+</div>
+    <!-- トップへ戻る -->
+<div class="to-top-control control-panel">
+  <a
+    href="#home"
+    class="control-button"
+    id="back-home-button"
+  >
+    トップへ
+  </a>
+  <button
+    class="control-button"
+    type="button"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  >
+    ページ上部へ
+  </button>
+</div>
+</body>
+</html>
