@@ -1027,47 +1027,56 @@ document.addEventListener(
   }
 );
 
-popupSwipeArea.addEventListener(
+// ===== ポップアップ全体のスワイプ =====
+// ×ボタン以外ならポップアップ全体で判定
+
+popup.addEventListener(
   "touchstart",
   event => {
 
-    const touch =
-      event.changedTouches[0];
+    // ×ボタンを触った場合はスワイプ判定しない
+    if (event.target.closest(".close-btn")) {
+      return;
+    }
 
-    touchStartX =
-      touch.clientX;
+    const touch = event.changedTouches[0];
 
-    touchStartY =
-      touch.clientY;
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
 
-    touchEndX =
-      touchStartX;
-
-    touchEndY =
-      touchStartY;
+    touchEndX = touchStartX;
+    touchEndY = touchStartY;
   },
   { passive: true }
 );
 
-popupSwipeArea.addEventListener(
+
+popup.addEventListener(
   "touchmove",
   event => {
 
-    const touch =
-      event.changedTouches[0];
+    // ×ボタンを触っている場合は何もしない
+    if (event.target.closest(".close-btn")) {
+      return;
+    }
 
-    touchEndX =
-      touch.clientX;
+    const touch = event.changedTouches[0];
 
-    touchEndY =
-      touch.clientY;
+    touchEndX = touch.clientX;
+    touchEndY = touch.clientY;
   },
   { passive: true }
 );
 
-popupSwipeArea.addEventListener(
+
+popup.addEventListener(
   "touchend",
-  () => {
+  event => {
+
+    // ×ボタンを触った場合はスワイプ判定しない
+    if (event.target.closest(".close-btn")) {
+      return;
+    }
 
     const differenceX =
       touchEndX - touchStartX;
@@ -1076,18 +1085,13 @@ popupSwipeArea.addEventListener(
       touchEndY - touchStartY;
 
 
-    /*
-      縦方向より横方向への移動が
-      大きい場合だけスワイプ判定
-    */
+    // 横方向への移動が大きい場合だけ判定
     const isHorizontal =
       Math.abs(differenceX) >
       Math.abs(differenceY);
 
 
-    /*
-      50px以上動いた場合だけ反応
-    */
+    // 50px未満なら無視
     if (
       !isHorizontal ||
       Math.abs(differenceX) < 50
@@ -1096,21 +1100,14 @@ popupSwipeArea.addEventListener(
     }
 
 
-    /*
-      左スワイプ
-      → 次
-    */
+    // 左スワイプ → 次の写真
     if (differenceX < 0) {
 
       showNextPhoto();
 
     } else {
 
-      /*
-        右スワイプ
-        → 前
-      */
-
+      // 右スワイプ → 前の写真
       showPreviousPhoto();
 
     }
