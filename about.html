@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web美術館</title>
+    <link rel="stylesheet" href="all.css">
+    <script src="all.js" defer></script>
+</head>
+<body>
+    <img src="image/index.webp" class="body-bg">
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-infomation">
+            <a href="index.html" class="logo">
+                <img src="image/logoa.png" alt="ロゴ">
+            </a>
+            <button class="hamburger" id="hamburger" type="button" aria-label="メニューを開閉" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <ul>
+                    <li><a href="credits.html">使用素材</a></li>
+                    <li class="nav-separator" aria-hidden="true">✦</li>
+                    <li><a href="about.html">サイトについて</a></li>
+                    <li class="nav-separator" aria-hidden="true">✦</li>
+                    <li><a href="profile.html">制作者プロフィール</a></li>
+                </ul>
+            </nav> 
+        </div>
+    </header>
+    <!-- メイン -->
+    <main class="site-main">
+        <h1 class="maintitle">このサイトについて</h1>
+        <p class="maintext">
+            本日はご来場ありがとうございます。<br>
+        </p>
+        <p class="maintext">
+            この場所は私が撮影した写真を展示している場所です。<br>
+            旅行の際に撮影した写真がメインとなっています。<br>
+            ジャンルごとに写真を展示しているので<br>
+            惹かれたものをご覧ください。<br>
+            写真をタッチ又はクリックをすることで写真の詳細が見られるので<br>
+            気になった写真があれば是非ご覧ください。<br>
+        </p>
+        <p class="maintext">
+            美術館や展示会をテーマにしたゲームのようなデザインを目指しサイトを作成しています。<br>
+            展示会に来たような気持になっていただけたら嬉しいです。<br>
+            各ページ、BGMが再生できるのでBGMを再生すると没入感が高まります。<br>
+        </p>
+        <p class="maintext">
+            ごゆっくりお楽しみください。<br>
+        </p>
+    </main>
+    <!-- トップへ戻る -->
+    <div class="to-top-control control-panel">
+        <a href="index.html" class="control-button">トップへ</a>
+        <button class="control-button" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">ページ上部へ</button>
+    </div>   
+</body>
+</html>
